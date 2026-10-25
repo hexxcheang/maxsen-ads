@@ -1,0 +1,125 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  @font-face { font-family:'EB Garamond'; src:url(assets/eb-garamond-latin-wght-normal.woff2) format('woff2'); font-weight:400 800; font-style:normal; }
+  @font-face { font-family:'EB Garamond'; src:url(assets/eb-garamond-latin-wght-italic.woff2) format('woff2'); font-weight:400 800; font-style:italic; }
+  @font-face { font-family:'Lato'; src:url(assets/lato-latin-400-normal.woff2) format('woff2'); font-weight:400; }
+  @font-face { font-family:'Lato'; src:url(assets/lato-latin-700-normal.woff2) format('woff2'); font-weight:700; }
+  @font-face { font-family:'Lato'; src:url(assets/lato-latin-900-normal.woff2) format('woff2'); font-weight:900; }
+
+  :root {
+    --porcelain:#FBF8F4; --ivory:#F4EEE6; --cream:#EADFD2; --champagne:#DCCBBB;
+    --rose:#CFA594; --rose-deep:#A87C6B; --ink:#29221F;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { width:1080px; height:985px; background:var(--porcelain); color:var(--ink); font-family:'Lato',sans-serif; position:relative; overflow:hidden; }
+  .abs { position:absolute; }
+  .label { font-family:'Lato'; font-weight:700; font-size:13px; letter-spacing:3.2px; text-transform:uppercase; color:var(--rose-deep); }
+  .rule { height:1px; background:var(--rose); opacity:.7; }
+
+  /* headline */
+  .name { font-family:'EB Garamond'; font-weight:400; font-size:112px; line-height:.9; letter-spacing:-1px; }
+  .name i { display:block; font-size:62px; color:var(--rose-deep); letter-spacing:0; margin-top:6px; }
+  .sub { font-size:22px; font-weight:400; letter-spacing:.3px; }
+  .sub b { font-weight:700; }
+
+  /* dimensions */
+  .dline { background:var(--ink); opacity:.55; }
+  .dim { font-size:16px; letter-spacing:1px; color:var(--ink); }
+  .dim b { font-weight:700; }
+
+  /* cct bar */
+  .cct { width:400px; height:12px; border-radius:6px; background:linear-gradient(90deg,#F3BE84 0%,#F8DDB6 30%,#FBF3E6 52%,#E7EEF4 76%,#CCDCEB 100%); box-shadow:inset 0 0 0 1px rgba(41,34,31,.08); }
+  .cct-ticks { width:400px; display:flex; justify-content:space-between; font-size:15px; margin-top:10px; }
+  .cct-ticks span { display:flex; flex-direction:column; }
+  .cct-ticks small { font-size:12px; letter-spacing:1.6px; text-transform:uppercase; color:#7a6d66; margin-top:3px; }
+
+  /* features */
+  .features { left:56px; top:612px; width:968px; height:112px; display:grid; grid-template-columns:repeat(5,1fr); }
+  .feat { display:flex; flex-direction:column; align-items:center; text-align:center; gap:9px; padding-top:4px; }
+  .feat + .feat { border-left:1px solid rgba(207,165,148,.55); }
+  .feat svg { width:36px; height:36px; stroke:var(--rose-deep); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+  .feat h4 { font-family:'EB Garamond'; font-weight:500; font-size:23px; line-height:1; }
+  .feat p { font-size:13.5px; color:#6d615b; letter-spacing:.2px; }
+
+  /* specs */
+  .specs { left:56px; top:760px; width:968px; display:grid; grid-template-columns:repeat(3,1fr); column-gap:40px; }
+  .spec { display:flex; justify-content:space-between; align-items:baseline; padding:11px 0; border-bottom:1px solid rgba(207,165,148,.55); }
+  .spec span { font-size:11.5px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase; color:#8a7b73; }
+  .spec b { font-size:17px; font-weight:400; color:var(--ink); }
+
+  .footer { left:0; bottom:0; width:1080px; height:58px; background:var(--ivory); display:flex; align-items:center; justify-content:space-between; padding:0 56px; }
+  .footer em { font-family:'EB Garamond'; font-style:italic; font-size:21px; color:var(--rose-deep); }
+  .footer span { font-size:14px; letter-spacing:1.2px; }
+</style></head>
+<body>
+  <!-- header -->
+  <img class="abs" src="assets/wordmark-dark.png" style="left:56px; top:40px; height:23px;">
+  <div class="abs label" style="right:56px; top:46px;">Lighting Collection</div>
+  <div class="abs rule" style="left:56px; top:92px; width:968px;"></div>
+
+  <!-- headline -->
+  <div class="abs label" style="left:56px; top:134px;">Recessed Gypsum Light</div>
+  <div class="abs name" style="left:50px; top:166px;">Luna<i>Gypsum Globula</i></div>
+  <div class="abs sub" style="left:56px; top:356px;"><b>10W</b> &nbsp;·&nbsp; Smart CCT &nbsp;·&nbsp; CRI 98</div>
+
+  <!-- smart cct -->
+  <div class="abs label" style="left:56px; top:430px;">Smart CCT · 2700K – 6500K</div>
+  <div class="abs" style="left:56px; top:462px;">
+    <div class="cct"></div>
+    <div class="cct-ticks"><span>2700K<small>Warm</small></span><span style="align-items:center">4000K<small>Neutral</small></span><span style="align-items:flex-end">6500K<small>Cool</small></span></div>
+  </div>
+
+  <!-- product + dimensions -->
+  <img class="abs" src="assets/product.png" style="left:575px; top:112px; width:375px; -webkit-mask-image:radial-gradient(ellipse 72% 70% at 50% 50%,#000 78%,transparent 100%);">
+  <div class="abs dline" style="left:985px; top:133px; width:1px; height:401px;"></div>
+  <div class="abs dline" style="left:977px; top:133px; width:17px; height:1px;"></div>
+  <div class="abs dline" style="left:977px; top:534px; width:17px; height:1px;"></div>
+  <div class="abs dim" style="left:1021px; top:282px; transform:rotate(90deg); transform-origin:left top; white-space:nowrap;"><b>200 mm</b></div>
+
+  <div class="abs dline" style="left:606px; top:552px; width:305px; height:1px;"></div>
+  <div class="abs dline" style="left:606px; top:545px; width:1px; height:15px;"></div>
+  <div class="abs dline" style="left:910px; top:545px; width:1px; height:15px;"></div>
+  <div class="abs dim" style="left:500px; width:517px; text-align:center; top:562px; font-size:15px;"><b>200 mm</b> &nbsp;·&nbsp; Globe Ø<b>100 mm</b> &nbsp;·&nbsp; Cut-out <b>205 × 205 mm</b></div>
+
+  <div class="abs rule" style="left:56px; top:596px; width:968px;"></div>
+
+  <!-- features -->
+  <div class="abs features">
+    <div class="feat">
+      <svg viewBox="0 0 36 36"><circle cx="13" cy="14" r="8"/><circle cx="23" cy="14" r="8"/><circle cx="18" cy="23" r="8"/></svg>
+      <h4>CRI 98</h4><p>True-to-life colour</p>
+    </div>
+    <div class="feat">
+      <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="6.5"/><path d="M18 3v4M18 29v4M3 18h4M29 18h4M7.4 7.4l2.8 2.8M25.8 25.8l2.8 2.8M7.4 28.6l2.8-2.8M25.8 10.2l2.8-2.8"/></svg>
+      <h4>Full spectrum</h4><p>Natural, even light</p>
+    </div>
+    <div class="feat">
+      <svg viewBox="0 0 36 36"><path d="M18 4l11 4v9c0 7-4.6 12.3-11 15-6.4-2.7-11-8-11-15V8z"/><path d="M12.5 18.5l3.8 3.8 7.2-7.6"/></svg>
+      <h4>Low blue light</h4><p>Meets IEC standard</p>
+    </div>
+    <div class="feat">
+      <svg viewBox="0 0 36 36"><path d="M3 18s5.5-9 15-9 15 9 15 9-5.5 9-15 9S3 18 3 18z"/><circle cx="18" cy="18" r="4.5"/></svg>
+      <h4>Anti-glare</h4><p>Easy on the eyes</p>
+    </div>
+    <div class="feat">
+      <svg viewBox="0 0 36 36"><path d="M3 18c2-6 4-6 6 0s4 6 6 0"/><path d="M15 18h18"/><path d="M27 13l5 5-5 5"/></svg>
+      <h4>Flicker-free</h4><p>Steady, calm light</p>
+    </div>
+  </div>
+
+  <!-- specs -->
+  <div class="abs specs">
+    <div class="spec"><span>Power</span><b>10W</b></div>
+    <div class="spec"><span>Colour temp.</span><b>2700K – 6500K</b></div>
+    <div class="spec"><span>CRI</span><b>98</b></div>
+    <div class="spec"><span>Light source</span><b>Bridgelux COB</b></div>
+    <div class="spec"><span>Size</span><b>200 × 200 mm</b></div>
+    <div class="spec"><span>Globe</span><b>Ø100 mm</b></div>
+    <div class="spec"><span>Material</span><b>Gypsum, glass</b></div>
+    <div class="spec"><span>Cut-out</span><b>205 × 205 mm</b></div>
+    <div class="spec"><span>Ceiling depth</span><b>100 mm min.</b></div>
+  </div>
+
+  <div class="abs footer"><em>Every detail designed to belong.</em><span>WhatsApp +65 8988 1882 &nbsp;·&nbsp; maxsen.sg</span></div>
+</body></html>

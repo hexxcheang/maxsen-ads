@@ -1,69 +1,125 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <style>
+  @font-face { font-family:'EB Garamond'; src:url(assets/eb-garamond-latin-wght-normal.woff2) format('woff2'); font-weight:400 800; font-style:normal; }
+  @font-face { font-family:'EB Garamond'; src:url(assets/eb-garamond-latin-wght-italic.woff2) format('woff2'); font-weight:400 800; font-style:italic; }
+  @font-face { font-family:'Lato'; src:url(assets/lato-latin-400-normal.woff2) format('woff2'); font-weight:400; }
+  @font-face { font-family:'Lato'; src:url(assets/lato-latin-700-normal.woff2) format('woff2'); font-weight:700; }
+  @font-face { font-family:'Lato'; src:url(assets/lato-latin-900-normal.woff2) format('woff2'); font-weight:900; }
+
+  :root {
+    --porcelain:#FBF8F4; --ivory:#F4EEE6; --cream:#EADFD2; --champagne:#DCCBBB;
+    --rose:#CFA594; --rose-deep:#A87C6B; --ink:#29221F;
+  }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { width:1080px; height:985px; background:#f4f4f4; font-family:'Inter',sans-serif; color:#222; position:relative; overflow:hidden; }
+  body { width:1080px; height:985px; background:var(--porcelain); color:var(--ink); font-family:'Lato',sans-serif; position:relative; overflow:hidden; }
   .abs { position:absolute; }
-  .hdr { left:0; top:0; width:1080px; height:95px; background:#b6615c; display:flex; align-items:center; justify-content:space-between; padding:0 18px 0 28px; }
-  .feat { display:flex; align-items:center; gap:8px; color:#fff; }
-  .feat img { display:block; height:58px; }
-  .feat .t { font-size:15.5px; line-height:1.25; font-weight:600; letter-spacing:.1px; }
-  .feat .t b { display:block; font-weight:500; font-size:14.5px; opacity:.95; }
-  .pill { background:#b8605c; color:#fff; border-radius:34px; font-weight:600; display:flex; align-items:center; justify-content:center; }
-  .warranty { left:60px; top:222px; color:#c0504d; font-weight:800; font-size:58px; line-height:1.08; letter-spacing:-1px; }
-  .warranty small { display:block; font-size:30px; font-weight:700; letter-spacing:0; margin-top:10px; color:#c0504d; }
-  .dash-h { border-top:2px dashed #222; }
-  .dash-v { border-left:2px dashed #222; }
-  .arrow { width:0; height:0; position:absolute; }
-  .dim { font-size:24px; font-weight:500; }
-  .banner { left:0; top:690px; width:1080px; height:80px; background:#b8605c; color:#fff; display:flex; align-items:center; justify-content:center; font-size:36px; font-weight:800; letter-spacing:-.3px; }
-  table { position:absolute; left:20px; top:770px; width:1040px; height:215px; border-collapse:collapse; font-size:20.5px; table-layout:fixed; }
-  td { padding-left:40px; color:#111; font-weight:500;  }
-  td.m { padding-left:34px; }
-  td.r { padding-left:34px; }
-  td + td { border-left:1.5px solid #9a9a9a; }
-  tr:first-child td { padding-top:6px; }
-  td span { font-weight:600; }
+  .label { font-family:'Lato'; font-weight:700; font-size:13px; letter-spacing:3.2px; text-transform:uppercase; color:var(--rose-deep); }
+  .rule { height:1px; background:var(--rose); opacity:.7; }
+
+  /* headline */
+  .name { font-family:'EB Garamond'; font-weight:400; font-size:112px; line-height:.9; letter-spacing:-1px; }
+  .name i { display:block; font-size:66px; color:var(--rose-deep); letter-spacing:0; margin-top:6px; }
+  .sub { font-size:22px; font-weight:400; letter-spacing:.3px; }
+  .sub b { font-weight:700; }
+
+  /* dimensions */
+  .dline { background:var(--ink); opacity:.55; }
+  .dim { font-size:16px; letter-spacing:1px; color:var(--ink); }
+  .dim b { font-weight:700; }
+
+  /* cct bar */
+  .cct { width:400px; height:12px; border-radius:6px; background:linear-gradient(90deg,#F3BE84 0%,#F8DDB6 30%,#FBF3E6 52%,#E7EEF4 76%,#CCDCEB 100%); box-shadow:inset 0 0 0 1px rgba(41,34,31,.08); }
+  .cct-ticks { width:400px; display:flex; justify-content:space-between; font-size:15px; margin-top:10px; }
+  .cct-ticks span { display:flex; flex-direction:column; }
+  .cct-ticks small { font-size:12px; letter-spacing:1.6px; text-transform:uppercase; color:#7a6d66; margin-top:3px; }
+
+  /* features */
+  .features { left:56px; top:612px; width:968px; height:112px; display:grid; grid-template-columns:repeat(5,1fr); }
+  .feat { display:flex; flex-direction:column; align-items:center; text-align:center; gap:9px; padding-top:4px; }
+  .feat + .feat { border-left:1px solid rgba(207,165,148,.55); }
+  .feat svg { width:36px; height:36px; stroke:var(--rose-deep); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+  .feat h4 { font-family:'EB Garamond'; font-weight:500; font-size:23px; line-height:1; }
+  .feat p { font-size:13.5px; color:#6d615b; letter-spacing:.2px; }
+
+  /* specs */
+  .specs { left:56px; top:760px; width:968px; display:grid; grid-template-columns:repeat(3,1fr); column-gap:40px; }
+  .spec { display:flex; justify-content:space-between; align-items:baseline; padding:11px 0; border-bottom:1px solid rgba(207,165,148,.55); }
+  .spec span { font-size:11.5px; font-weight:700; letter-spacing:2.2px; text-transform:uppercase; color:#8a7b73; }
+  .spec b { font-size:17px; font-weight:400; color:var(--ink); }
+
+  .footer { left:0; bottom:0; width:1080px; height:58px; background:var(--ivory); display:flex; align-items:center; justify-content:space-between; padding:0 56px; }
+  .footer em { font-family:'EB Garamond'; font-style:italic; font-size:21px; color:var(--rose-deep); }
+  .footer span { font-size:14px; letter-spacing:1.2px; }
 </style></head>
 <body>
-  <div class="abs hdr">
-    <div class="feat"><img src="assets/icon0t.png"><div class="t">High CRI<b>Ra≥98</b></div></div>
-    <div class="feat"><img src="assets/icon1t.png"><div class="t">Full-Spectrum<b>LED Source</b></div></div>
-    <div class="feat"><img src="assets/icon2t.png" style="height:66px"><div class="t">CQS98<b>Colour Quality</b></div></div>
-    <div class="feat"><img src="assets/icon3t.png" style="height:52px"><div class="t">Low Blue Light<b>IEC Standard</b></div></div>
-    <div class="feat"><img src="assets/icon4t.png"><div class="t">Classroom Grade<b>LUX≥300</b></div></div>
-    <div class="feat"><img src="assets/icon5t.png" style="height:52px"><div class="t">Anti-Glare<b>Eye Care</b></div></div>
+  <!-- header -->
+  <img class="abs" src="assets/wordmark-dark.png" style="left:56px; top:40px; height:23px;">
+  <div class="abs label" style="right:56px; top:46px;">Lighting Collection</div>
+  <div class="abs rule" style="left:56px; top:92px; width:968px;"></div>
+
+  <!-- headline -->
+  <div class="abs label" style="left:56px; top:134px;">Trimless Gypsum Downlight</div>
+  <div class="abs name" style="left:50px; top:166px;">Luna<i>Gypsum</i></div>
+  <div class="abs sub" style="left:56px; top:356px;"><b>10W</b> &nbsp;·&nbsp; Smart CCT &nbsp;·&nbsp; CRI 98</div>
+
+  <!-- smart cct -->
+  <div class="abs label" style="left:56px; top:430px;">Smart CCT · 2700K – 6500K</div>
+  <div class="abs" style="left:56px; top:462px;">
+    <div class="cct"></div>
+    <div class="cct-ticks"><span>2700K<small>Warm</small></span><span style="align-items:center">4000K<small>Neutral</small></span><span style="align-items:flex-end">6500K<small>Cool</small></span></div>
   </div>
 
-  <div class="abs pill" style="left:540px; top:110px; width:285px; height:72px; font-size:28px;">Cut-out: 105mm</div>
+  <!-- product + dimensions -->
+  <img class="abs" src="assets/product.png" style="left:462px; top:128px; width:520px;">
+  <div class="abs dline" style="left:1010px; top:150px; width:1px; height:350px;"></div>
+  <div class="abs dline" style="left:1002px; top:150px; width:17px; height:1px;"></div>
+  <div class="abs dline" style="left:1002px; top:500px; width:17px; height:1px;"></div>
+  <div class="abs dim" style="left:1046px; top:288px; transform:rotate(90deg); transform-origin:left top; white-space:nowrap;">H <b>95 mm</b></div>
 
-  <div class="abs warranty">5-Year<br>Warranty<small>Worry-Free After-Sales</small></div>
+  <div class="abs dline" style="left:517px; top:520px; width:405px; height:1px;"></div>
+  <div class="abs dline" style="left:517px; top:512px; width:1px; height:17px;"></div>
+  <div class="abs dline" style="left:921px; top:512px; width:1px; height:17px;"></div>
+  <div class="abs dim" style="left:517px; width:405px; text-align:center; top:536px;">Ø <b>100 mm</b> &nbsp;·&nbsp; Cut-out <b>105 mm</b></div>
 
-  <img class="abs" src="assets/product.png" style="left:425px; top:200px; width:552px;">
+  <div class="abs rule" style="left:56px; top:590px; width:968px;"></div>
 
-  <!-- height dimension -->
-  <div class="abs dash-v" style="left:982px; top:152px; height:426px;"></div>
-  <div class="abs" style="left:970px; top:150px; width:26px; border-top:2px solid #222;"></div>
-  <div class="abs" style="left:970px; top:578px; width:26px; border-top:2px solid #222;"></div>
-  <div class="abs dim" style="left:1006px; top:362px; transform:rotate(90deg); transform-origin:left top; white-space:nowrap; left:1038px; top:300px;">Height 95mm</div>
+  <!-- features -->
+  <div class="abs features">
+    <div class="feat">
+      <svg viewBox="0 0 36 36"><circle cx="13" cy="14" r="8"/><circle cx="23" cy="14" r="8"/><circle cx="18" cy="23" r="8"/></svg>
+      <h4>CRI 98</h4><p>True-to-life colour</p>
+    </div>
+    <div class="feat">
+      <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="6.5"/><path d="M18 3v4M18 29v4M3 18h4M29 18h4M7.4 7.4l2.8 2.8M25.8 25.8l2.8 2.8M7.4 28.6l2.8-2.8M25.8 10.2l2.8-2.8"/></svg>
+      <h4>Full spectrum</h4><p>Natural, even light</p>
+    </div>
+    <div class="feat">
+      <svg viewBox="0 0 36 36"><path d="M18 4l11 4v9c0 7-4.6 12.3-11 15-6.4-2.7-11-8-11-15V8z"/><path d="M12.5 18.5l3.8 3.8 7.2-7.6"/></svg>
+      <h4>Low blue light</h4><p>Meets IEC standard</p>
+    </div>
+    <div class="feat">
+      <svg viewBox="0 0 36 36"><path d="M3 18s5.5-9 15-9 15 9 15 9-5.5 9-15 9S3 18 3 18z"/><circle cx="18" cy="18" r="4.5"/></svg>
+      <h4>Anti-glare</h4><p>Easy on the eyes</p>
+    </div>
+    <div class="feat">
+      <svg viewBox="0 0 36 36"><circle cx="18" cy="15" r="11"/><path d="M12 24.5L10 33l8-3.5 8 3.5-2-8.5"/><path d="M14.5 15l2.5 2.5 4.5-5"/></svg>
+      <h4>5-year warranty</h4><p>Peace of mind</p>
+    </div>
+  </div>
 
-  <!-- diameter dimension -->
-  <div class="abs dash-h" style="left:483px; top:598px; width:430px;"></div>
-  <div class="abs" style="left:483px; top:588px; height:22px; border-left:2px solid #222;"></div>
-  <div class="abs" style="left:911px; top:588px; height:22px; border-left:2px solid #222;"></div>
-  <div class="abs dim" style="left:483px; width:430px; text-align:center; top:617px;">Diameter <span style="font-weight:700">100 mm</span></div>
-  <div class="abs" style="right:18px; top:653px; color:#d0463f; font-size:22px; font-weight:700;">Recommended ceiling cavity: 10cm+</div>
+  <!-- specs -->
+  <div class="abs specs">
+    <div class="spec"><span>Power</span><b>10W</b></div>
+    <div class="spec"><span>Colour temp.</span><b>2700K – 6500K</b></div>
+    <div class="spec"><span>Beam angle</span><b>36°</b></div>
+    <div class="spec"><span>Light source</span><b>Bridgelux COB</b></div>
+    <div class="spec"><span>Cut-out</span><b>105 mm</b></div>
+    <div class="spec"><span>Size</span><b>Ø100 × 95 mm</b></div>
+    <div class="spec"><span>Material</span><b>Gypsum, aluminium</b></div>
+    <div class="spec"><span>Finish</span><b>White</b></div>
+    <div class="spec"><span>Ceiling depth</span><b>100 mm min.</b></div>
+  </div>
 
-  <!-- spectrum -->
-  <div class="abs" style="left:75px; top:510px; font-size:20px; font-weight:600;">CRI 98 Spectrum</div>
-  <img class="abs" src="assets/spectrum.png" style="left:70px; top:541px;">
-  <div class="abs" style="left:338px; top:580px; font-size:13px; font-weight:500; color:#333;">Wavelength (nm)</div>
-
-  <div class="abs banner">Luna Gypsum Trimless Downlight – 10W Smart CCT</div>
-
-  <table><colgroup><col style="width:31%"><col style="width:27%"><col style="width:42%"></colgroup>
-    <tr><td>Power: <span>10W</span></td><td class="m">CCT: <span>Smart CCT</span></td><td class="r">Material: <span>Gypsum + Aluminium</span></td></tr>
-    <tr><td>Light Source: <span>Bridgelux COB</span></td><td class="m">Cut-out: <span>105 mm</span></td><td class="r">Use: <span>Living Room / Bedroom</span></td></tr>
-    <tr><td>Colour: <span>White</span></td><td class="m">Beam Angle: <span>36°</span></td><td style="padding-left:30px;"><div class="pill" style="width:300px; height:56px; font-size:23px; border-radius:16px;">Ra98 High CRI · Eye Care</div></td></tr>
-  </table>
+  <div class="abs footer"><em>Every detail designed to belong.</em><span>WhatsApp +65 8988 1882 &nbsp;·&nbsp; maxsen.sg</span></div>
 </body></html>

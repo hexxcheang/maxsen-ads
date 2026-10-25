@@ -1,0 +1,69 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { width:1080px; height:985px; background:#f4f4f4; font-family:'Inter',sans-serif; color:#222; position:relative; overflow:hidden; }
+  .abs { position:absolute; }
+  .hdr { left:0; top:0; width:1080px; height:95px; background:#b6615c; display:flex; align-items:center; justify-content:space-between; padding:0 18px 0 28px; }
+  .feat { display:flex; align-items:center; gap:8px; color:#fff; }
+  .feat img { display:block; height:58px; }
+  .feat .t { font-size:15.5px; line-height:1.25; font-weight:600; letter-spacing:.1px; }
+  .feat .t b { display:block; font-weight:500; font-size:14.5px; opacity:.95; }
+  .pill { background:#b8605c; color:#fff; border-radius:34px; font-weight:600; display:flex; align-items:center; justify-content:center; }
+  .warranty { left:60px; top:222px; color:#c0504d; font-weight:800; font-size:58px; line-height:1.08; letter-spacing:-1px; }
+  .warranty small { display:block; font-size:30px; font-weight:700; letter-spacing:0; margin-top:10px; color:#c0504d; }
+  .dash-h { border-top:2px dashed #222; }
+  .dash-v { border-left:2px dashed #222; }
+  .arrow { width:0; height:0; position:absolute; }
+  .dim { font-size:24px; font-weight:500; }
+  .banner { left:0; top:690px; width:1080px; height:80px; background:#b8605c; color:#fff; display:flex; align-items:center; justify-content:center; font-size:36px; font-weight:800; letter-spacing:-.3px; }
+  table { position:absolute; left:20px; top:770px; width:1040px; height:215px; border-collapse:collapse; font-size:20.5px; table-layout:fixed; }
+  td { padding-left:40px; color:#111; font-weight:500;  }
+  td.m { padding-left:34px; }
+  td.r { padding-left:34px; }
+  td + td { border-left:1.5px solid #9a9a9a; }
+  tr:first-child td { padding-top:6px; }
+  td span { font-weight:600; }
+</style></head>
+<body>
+  <div class="abs hdr">
+    <div class="feat"><img src="assets/icon0t.png"><div class="t">High CRI<b>Ra≥98</b></div></div>
+    <div class="feat"><img src="assets/icon1t.png"><div class="t">Full-Spectrum<b>LED Source</b></div></div>
+    <div class="feat"><img src="assets/icon2t.png" style="height:66px"><div class="t">CQS98<b>Colour Quality</b></div></div>
+    <div class="feat"><img src="assets/icon3t.png" style="height:52px"><div class="t">Low Blue Light<b>IEC Standard</b></div></div>
+    <div class="feat"><img src="assets/icon4t.png"><div class="t">Classroom Grade<b>LUX≥300</b></div></div>
+    <div class="feat"><img src="assets/icon5t.png" style="height:52px"><div class="t">Anti-Glare<b>Eye Care</b></div></div>
+  </div>
+
+  <div class="abs pill" style="left:540px; top:110px; width:285px; height:72px; font-size:28px;">Cut-out: 105mm</div>
+
+  <div class="abs warranty">5-Year<br>Warranty<small>Worry-Free After-Sales</small></div>
+
+  <img class="abs" src="assets/product.png" style="left:425px; top:200px; width:552px;">
+
+  <!-- height dimension -->
+  <div class="abs dash-v" style="left:982px; top:152px; height:426px;"></div>
+  <div class="abs" style="left:970px; top:150px; width:26px; border-top:2px solid #222;"></div>
+  <div class="abs" style="left:970px; top:578px; width:26px; border-top:2px solid #222;"></div>
+  <div class="abs dim" style="left:1006px; top:362px; transform:rotate(90deg); transform-origin:left top; white-space:nowrap; left:1038px; top:300px;">Height 95mm</div>
+
+  <!-- diameter dimension -->
+  <div class="abs dash-h" style="left:483px; top:598px; width:430px;"></div>
+  <div class="abs" style="left:483px; top:588px; height:22px; border-left:2px solid #222;"></div>
+  <div class="abs" style="left:911px; top:588px; height:22px; border-left:2px solid #222;"></div>
+  <div class="abs dim" style="left:483px; width:430px; text-align:center; top:617px;">Diameter <span style="font-weight:700">100 mm</span></div>
+  <div class="abs" style="right:18px; top:653px; color:#d0463f; font-size:22px; font-weight:700;">Recommended ceiling cavity: 10cm+</div>
+
+  <!-- spectrum -->
+  <div class="abs" style="left:75px; top:510px; font-size:20px; font-weight:600;">CRI 98 Spectrum</div>
+  <img class="abs" src="assets/spectrum.png" style="left:70px; top:541px;">
+  <div class="abs" style="left:338px; top:580px; font-size:13px; font-weight:500; color:#333;">Wavelength (nm)</div>
+
+  <div class="abs banner">Luna Gypsum Trimless Downlight – 10W Smart CCT</div>
+
+  <table><colgroup><col style="width:31%"><col style="width:27%"><col style="width:42%"></colgroup>
+    <tr><td>Power: <span>10W</span></td><td class="m">CCT: <span>Smart CCT</span></td><td class="r">Material: <span>Gypsum + Aluminium</span></td></tr>
+    <tr><td>Light Source: <span>Bridgelux COB</span></td><td class="m">Cut-out: <span>105 mm</span></td><td class="r">Use: <span>Living Room / Bedroom</span></td></tr>
+    <tr><td>Colour: <span>White</span></td><td class="m">Beam Angle: <span>36°</span></td><td style="padding-left:30px;"><div class="pill" style="width:300px; height:56px; font-size:23px; border-radius:16px;">Ra98 High CRI · Eye Care</div></td></tr>
+  </table>
+</body></html>
